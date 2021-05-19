@@ -1,0 +1,13 @@
+# copy of cron schedule for timelapse
+#
+# m h  dom mon dow   command
+*/5 * * * * /home/pi/scripts/wifi_check.sh
+
+*/1 * * * * /home/pi/scripts/capture_daylight_photo.py
+
+#0 22 * * * /home/pi/scripts/make_timelapse.sh 2> /dev/null
+
+#### Make timestamp overlays and timelapse for current day
+#
+0 22 * * * /home/pi/scripts/process_overlay_files.sh 2> /dev/null ; /home/pi/scripts/make_overlay_timelapse.sh 2> /dev/null
+
